@@ -55,7 +55,7 @@ class UsuarioPermisoController extends Controller
         });
 
         return redirect()
-            ->route('Usuarios.Index')
+            ->route('usuarios.index')
             ->with('success', 'Permisos actualizados correctamente');
     }
 }
