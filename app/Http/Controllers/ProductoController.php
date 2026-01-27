@@ -24,7 +24,7 @@ class ProductoController extends Controller
             ->orderBy('id_producto')
             ->paginate(10);
 
-        return view('productos.index', compact('productos'));
+        return view('Productos.index', compact('productos'));
     }
 
     /* =====================================================
@@ -35,7 +35,7 @@ class ProductoController extends Controller
         $tipos = Categories::orderBy('id_tipo')->get();
         $unidades = UnidadMedida::orderBy('um_descripcion')->get();
 
-        return view('productos.create', compact('tipos', 'unidades'));
+        return view('Productos.Create', compact('tipos', 'unidades'));
     }
 
     /* =====================================================
@@ -73,7 +73,7 @@ class ProductoController extends Controller
         ]);
 
         return redirect()
-            ->route('productos.index')
+            ->route('Productos.index')
             ->with('success', 'Producto registrado correctamente');
     }
 
@@ -84,7 +84,7 @@ class ProductoController extends Controller
     {
         $producto = Producto::findOrFail($id);
 
-        return view('productos.show', compact('producto'));
+        return view('Productos.show', compact('producto'));
     }
 
     /* =====================================================
@@ -99,7 +99,7 @@ class ProductoController extends Controller
         $tipos = Categories::orderBy('id_tipo')->get();
         $unidades = UnidadMedida::orderBy('um_descripcion')->get();
 
-        return view('productos.edit', compact(
+        return view('Productos.Edit', compact(
             'producto',
             'tipos',
             'unidades',
@@ -116,7 +116,7 @@ class ProductoController extends Controller
 
         if ($producto->estado_prod === 'ANU') {
             return redirect()
-                ->route('productos.index')
+                ->route('Productos.index')
                 ->with('warning', 'No se puede modificar un producto inactivo.');
         }
 
@@ -148,7 +148,7 @@ class ProductoController extends Controller
         ]);
 
         return redirect()
-            ->route('productos.index')
+            ->route('Productos.index')
             ->with('success', 'Producto actualizado correctamente');
     }
 
@@ -160,7 +160,7 @@ class ProductoController extends Controller
         Producto::findOrFail($id)->desactivar();
 
         return redirect()
-            ->route('productos.index')
+            ->route('Productos.index')
             ->with('success', 'Producto desactivado correctamente');
     }
 
