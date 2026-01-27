@@ -44,7 +44,7 @@ class CarritoController extends Controller
 
         }
 
-        return view('carrito.index', compact('carrito', 'detalles'));
+        return view('Carrito.index', compact('carrito', 'detalles'));
     }
 
 
