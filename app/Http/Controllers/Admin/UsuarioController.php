@@ -30,13 +30,13 @@ class UsuarioController extends Controller
 
         $usuarios = $query->orderBy('name')->paginate(10);
 
-        return view('admin.usuarios.index', compact('usuarios'));
+        return view('admin.Usuarios.Index', compact('usuarios'));
     }
 
 
     public function create()
     {
-        return view('admin.usuarios.create');
+        return view('admin.Usuarios.create');
     }
 
     public function store(Request $request)
@@ -55,7 +55,7 @@ class UsuarioController extends Controller
             'rol'      => $data['rol'],
         ]);
 
-        return redirect()->route('usuarios.index')
+        return redirect()->route('Usuarios.Index')
             ->with('success', 'Usuario creado correctamente');
     }
 
@@ -68,7 +68,7 @@ class UsuarioController extends Controller
         $user->delete(); // 👈 soft delete
 
         return redirect()
-            ->route('usuarios.index')
+            ->route('Usuarios.Index')
             ->with('success', 'Usuario desactivado correctamente');
     }
 }
