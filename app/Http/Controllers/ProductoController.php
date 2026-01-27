@@ -170,7 +170,7 @@ class ProductoController extends Controller
         $producto = Producto::whereRaw('TRIM(id_producto) = ?', [trim($id)])
             ->firstOrFail();
 
-        return view('productos.detalle', compact('producto'));
+        return view('Productos.detalle', compact('producto'));
     }
 
 
