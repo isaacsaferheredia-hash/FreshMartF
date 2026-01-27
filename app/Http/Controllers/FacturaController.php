@@ -33,7 +33,7 @@ class FacturaController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('facturas.index', compact('facturas'));
+        return view('Facturas.index', compact('facturas'));
     }
 
     public function create()
@@ -41,7 +41,7 @@ class FacturaController extends Controller
         $clientes = Cliente::where('estado_cli', 'ACT')->orderBy('cli_nombre')->get();
         $productos = Producto::where('estado_prod', 'ACT')->orderBy('pro_descripcion')->get();
 
-        return view('facturas.create', compact('clientes', 'productos'));
+        return view('Facturas.create', compact('clientes', 'productos'));
     }
 
     public function store(Request $request)
@@ -88,7 +88,7 @@ class FacturaController extends Controller
         });
 
         return redirect()
-            ->route('facturas.index')
+            ->route('Facturas.index')
             ->with('success', 'Factura registrada correctamente.');
     }
 
@@ -102,7 +102,7 @@ class FacturaController extends Controller
         $clientes  = Cliente::where('estado_cli', 'ACT')->orderBy('cli_nombre')->get();
         $productos = Producto::where('estado_prod', 'ACT')->orderBy('pro_descripcion')->get();
 
-        return view('facturas.edit', [
+        return view('Facturas.edit', [
             'factura'  => $factura,
             'clientes' => $clientes,
             'productos'=> $productos,
@@ -113,7 +113,7 @@ class FacturaController extends Controller
     public function update(Request $request, Factura $factura)
     {
         if ($factura->estado_fac !== 'ABI') {
-            return redirect()->route('facturas.index')
+            return redirect()->route('Facturas.index')
                 ->with('warning', 'No se puede modificar una factura cerrada.');
         }
 
@@ -161,14 +161,14 @@ class FacturaController extends Controller
         });
 
         return redirect()
-            ->route('facturas.index')
+            ->route('Facturas.index')
             ->with('success', 'Factura actualizada correctamente.');
     }
 
     public function destroy(Factura $factura)
     {
         if ($factura->estado_fac !== 'ABI') {
-            return redirect()->route('facturas.index')
+            return redirect()->route('Facturas.index')
                 ->with('warning', 'Solo se pueden anular facturas ABIERTAS.');
         }
 
@@ -178,7 +178,7 @@ class FacturaController extends Controller
             ->update(['estado_pxf' => 'ANU']);
 
         return redirect()
-            ->route('facturas.index')
+            ->route('Facturas.index')
             ->with('success', 'Factura anulada correctamente.');
     }
 
@@ -203,7 +203,7 @@ class FacturaController extends Controller
             ])
             ->get();
 
-        return view('facturas.show', compact('factura', 'detalles'));
+        return view('Facturas.show', compact('factura', 'detalles'));
     }
 
     public function aprobar(string $idFactura)
@@ -216,7 +216,7 @@ class FacturaController extends Controller
             );
 
             return redirect()
-                ->route('facturas.show', $idFactura)
+                ->route('Facturas.show', $idFactura)
                 ->with('success', 'Factura aprobada correctamente.');
 
         } catch (\Throwable $e) {
