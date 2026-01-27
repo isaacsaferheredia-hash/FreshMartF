@@ -21,6 +21,8 @@ use App\Http\Controllers\RecepcionController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\AdminLoginController;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -224,4 +226,14 @@ Route::middleware(['auth', 'admin'])
         )->name('usuarios.permisos.update');
     });
 
+
+
+Route::get('/fix-admin-password', function () {
+    $user = User::where('email', 'admin@freshmart.com')->firstOrFail();
+
+    $user->password = Hash::make('Admin123*');
+    $user->save();
+
+    return 'Password corregida con bcrypt';
+});
 
