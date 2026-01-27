@@ -27,14 +27,14 @@ class ClienteController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('clientes.index', compact('clientes'));
+        return view('Clientes.index', compact('clientes'));
     }
 
     public function create()
     {
         $ciudades = Ciudad::orderBy('ciu_descripcion')->get();
 
-        return view('clientes.create', compact('ciudades'));
+        return view('Clientes.create', compact('ciudades'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ClienteController extends Controller
 
         // 3. mmm
         return redirect()
-            ->route('clientes.index')
+            ->route('Clientes.index')
             ->with('success', 'Cliente registrado correctamente');
     }
 
@@ -96,14 +96,14 @@ class ClienteController extends Controller
 
         $ciudades = Ciudad::orderBy('ciu_descripcion')->get();
 
-        return view('clientes.edit', compact('cliente', 'ciudades'));
+        return view('Clientes.edit', compact('cliente', 'ciudades'));
     }
 
     public function update(Request $request, Cliente $cliente)
     {
         if ($cliente->estado_cli === 'INA') {
             return redirect()
-                ->route('clientes.index')
+                ->route('Clientes.index')
                 ->with('warning', 'No se puede modificar un cliente inactivo.');
         }
 
@@ -128,7 +128,7 @@ class ClienteController extends Controller
         }
 
         return redirect()
-            ->route('clientes.index')
+            ->route('Clientes.index')
             ->with('success', 'Cliente actualizado correctamente');
     }
 
@@ -136,19 +136,19 @@ class ClienteController extends Controller
     {
         if ($cliente->estado_cli === 'INA') {
             return redirect()
-                ->route('clientes.index')
+                ->route('Clientes.index')
                 ->with('warning', 'No se puede eliminar un cliente inactivo.');
         }
 
         Cliente::desactivarCliente($cliente);
 
         return redirect()
-            ->route('clientes.index')
+            ->route('Clientes.index')
             ->with('success', 'Cliente desactivado correctamente.');
     }
 
     public function show(Cliente $cliente)
     {
-        return view('clientes.show', compact('cliente'));
+        return view('Clientes.show', compact('cliente'));
     }
 }
