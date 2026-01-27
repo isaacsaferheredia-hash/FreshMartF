@@ -149,6 +149,6 @@ class ClienteController extends Controller
 
     public function show(Cliente $cliente)
     {
-        return view('Clientes.show', compact('cliente'));
+        return view('Clientes.Show', compact('cliente'));
     }
 }
