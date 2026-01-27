@@ -21,7 +21,7 @@ class CompraController extends Controller
 
             if ($q === '') {
                 return redirect()
-                    ->route('compras.index')
+                    ->route('Compras.index')
                     ->with('error', 'Debe ingresar un criterio de búsqueda.');
             }
 
@@ -45,7 +45,7 @@ class CompraController extends Controller
             : null;
 
         return view(
-            'compras.index',
+            'Compras.index',
             compact('compras', 'mensajeVacio', 'mensajeSinResultados')
         );
     }
@@ -60,7 +60,7 @@ class CompraController extends Controller
             ->orderBy('pro_descripcion')
             ->get();
 
-        return view('compras.create', compact('proveedores', 'productos'));
+        return view('Compras.create', compact('proveedores', 'productos'));
     }
 
     public function store(Request $request)
@@ -86,7 +86,7 @@ class CompraController extends Controller
             );
 
             return redirect()
-                ->route('compras.index')
+                ->route('Compras.index')
                 ->with('success', 'Compra y recepción creadas correctamente.');
 
         } catch (\Throwable $e) {
@@ -111,7 +111,7 @@ class CompraController extends Controller
 
         $total = ($compra->oc_subtotal ?? 0) + ($compra->oc_iva ?? 0);
 
-        return view('compras.show', compact('compra', 'productos', 'total'));
+        return view('Compras.show', compact('compra', 'productos', 'total'));
     }
 
     public function edit($id)
@@ -120,7 +120,7 @@ class CompraController extends Controller
 
         if ($compra->estado_oc === 'ANU') {
             return redirect()
-                ->route('compras.index')
+                ->route('Compras.index')
                 ->with('warning', 'No se puede modificar una orden anulada.');
         }
 
@@ -146,7 +146,7 @@ class CompraController extends Controller
 
         if ($compra->estado_oc === 'ANU') {
             return redirect()
-                ->route('compras.index')
+                ->route('Compras.index')
                 ->with('warning', 'No se puede modificar una orden anulada.');
         }
 
@@ -186,7 +186,7 @@ class CompraController extends Controller
         }
 
         return redirect()
-            ->route('compras.index')
+            ->route('Compras.index')
             ->with('success', 'Orden de compra actualizada correctamente.');
     }
 
@@ -196,7 +196,7 @@ class CompraController extends Controller
 
         if ($compra->estado_oc === 'ANU') {
             return redirect()
-                ->route('compras.index')
+                ->route('Compras.index')
                 ->with('warning', 'La orden seleccionada ya se encuentra anulada.');
         }
 
@@ -205,12 +205,12 @@ class CompraController extends Controller
             $compra->detalles()->update(['estado_pxoc' => 'ANU']);
         } catch (\Throwable $e) {
             return redirect()
-                ->route('compras.index')
+                ->route('Compras.index')
                 ->with('error', 'No se pudo anular la orden de compra.');
         }
 
         return redirect()
-            ->route('compras.index')
+            ->route('Compras.index')
             ->with('success', 'Orden de compra anulada correctamente.');
     }
 }
