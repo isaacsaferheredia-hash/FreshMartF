@@ -48,6 +48,6 @@ class CheckoutController extends Controller
 
     public function exito()
     {
-        return view('checkout.exito');
+        return view('Checkout.exito');
     }
 }
