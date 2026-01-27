@@ -225,5 +225,3 @@ Route::middleware(['auth', 'admin'])
     });
 
 
-Route::delete('usuarios/{user}', [UsuarioController::class, 'destroy'])
-    ->name('usuarios.destroy');
