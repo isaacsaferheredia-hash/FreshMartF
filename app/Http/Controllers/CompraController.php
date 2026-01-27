@@ -89,13 +89,14 @@ class CompraController extends Controller
                 ->route('compras.index')
                 ->with('success', 'Compra y recepción creadas correctamente.');
 
+        } catch (\Throwable $e) {
 
-
-           return back()
+            return back()
                 ->withInput()
-               ->with('error', 'Error al registrar la compra y su recepción.');
+                ->with('error', 'Error al registrar la compra y su recepción.');
         }
     }
+
     public function show($id)
     {
         $compra = Compra::getCompraById($id);
@@ -109,7 +110,7 @@ class CompraController extends Controller
 
         $total = ($compra->oc_subtotal ?? 0) + ($compra->oc_iva ?? 0);
 
-        return view('Compras.show', compact('compra', 'productos', 'total'));
+        return view('compras.show', compact('compra', 'productos', 'total'));
     }
 
     public function edit($id)
@@ -153,7 +154,6 @@ class CompraController extends Controller
                 'id_proveedor'   => 'required|exists:proveedores,id_proveedor',
                 'oc_fecha_hora'  => 'required|date',
                 'oc_observacion' => 'nullable|string|max:255',
-
                 'items'               => 'required|array|min:1',
                 'items.*.id_producto' => 'required|string|max:15',
                 'items.*.cantidad'    => 'required|integer|min:1',
@@ -190,7 +190,8 @@ class CompraController extends Controller
 
     public function destroy($id)
     {
-        $compra = Compra::findOrFail($id);
+        // 🔧 Consistencia con el resto del controlador
+        $compra = Compra::getCompraById($id);
 
         if ($compra->estado_oc === 'ANU') {
             return redirect()
