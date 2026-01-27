@@ -19,7 +19,7 @@ class UsuarioPermisoController extends Controller
             ->get()
             ->keyBy('id_area');
 
-        return view('admin.usuarios.permisos', compact(
+        return view('admin.Usuarios.permisos', compact(
             'user',
             'areas',
             'roles',
@@ -55,7 +55,7 @@ class UsuarioPermisoController extends Controller
         });
 
         return redirect()
-            ->route('usuarios.index')
+            ->route('Usuarios.Index')
             ->with('success', 'Permisos actualizados correctamente');
     }
 }
