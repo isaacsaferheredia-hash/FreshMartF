@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\Auth\AdminLoginController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
 Route::view('/contacto', 'contacto')->name('contacto');
 Route::view('/faq', 'faq')->name('faq');
 Route::view('/devoluciones', 'devoluciones')->name('devoluciones');
