@@ -1,0 +1,145 @@
+/* ---------------------------------------------------
+   HOME - FRESHMART STYLE (Bootstrap-Based)
+----------------------------------------------------- */
+
+/* HERO BANNER */
+.hero-banner {
+    background: linear-gradient(135deg, #2f9e44, #37b24d, #2f9e44);
+    color: white;
+    border-radius: 30px;
+}
+
+.hero-image {
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.badge {
+    font-size: 0.9rem;
+}
+
+/* FEATURE BOXES */
+.feature-box {
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+.feature-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* FEATURE ICON CIRCLES */
+.icon-circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CATEGORIES */
+
+
+/* Caja categoría – NO se modifica */
+.category-box {
+    padding: 20px 10px;
+    text-align: center;
+}
+
+/* Imagen más pequeña dentro de un círculo grande */
+.category-img {
+    width: 100px;          /* más pequeño que el círculo */
+    height: 100px;
+    border-radius: 50%;    /* sigue siendo redonda */
+    object-fit: contain;   /* NO recorta NADA */
+    background-color: #fff;
+    padding: 10px;         /* espacio interior */
+    display: block;
+    margin: 0 auto;
+    border: 3px solid #e5e5e5; /* opcional para que se vea bonito */
+}
+
+
+
+
+/* PRODUCTS */
+.product-card {
+    border-radius: 22px;
+    transition: 0.25s ease;
+}
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+
+.product-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+}
+
+/* ORANGE BANNER */
+.orange-banner {
+    background: linear-gradient(135deg, #ff922b, #f76707, #ff922b);
+    border-radius: 30px;
+    text-align: center;
+    padding: 60px 30px;
+}
+
+/* NEWSLETTER */
+.newsletter {
+    background: linear-gradient(to bottom right, #ffffff, #ebfbee);
+    border-radius: 30px;
+}
+
+.newsletter-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 22px;
+    background: linear-gradient(to bottom right, #e9f7ec, #e6ffef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ARROW ANIMATION (FOOTER) */
+.footer-hover:hover .arrow-animate {
+    opacity: 1 !important;
+    transform: translateX(5px);
+    transition: 0.3s ease;
+}
+
+/* UNIVERSAL HOVER */
+.hover-up {
+    transition: 0.25s ease;
+}
+.hover-up:hover {
+    transform: translateY(-5px);
+}
+
+/* MOBILE RESPONSIVE TWEAKS */
+@media (max-width: 768px) {
+    .hero-banner {
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 20px;
+    }
+}
+
+
+.filter-link {
+    text-decoration: none;
+    color: #555;
+    display: block;
+    padding: 6px 0;
+    transition: 0.2s;
+}
+
+.filter-link:hover {
+    color: #2f9e44;
+    font-weight: 600;
+    transform: translateX(3px);
+}
