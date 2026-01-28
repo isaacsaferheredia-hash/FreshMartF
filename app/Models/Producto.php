@@ -81,4 +81,22 @@ class Producto extends Model
             'fecha_baja'  => now(),
         ]);
     }
+
+
+    /**
+ * Actualiza un producto existente
+ */
+public function actualizarProducto(array $data): void
+{
+    $this->update([
+        'pro_descripcion'  => $data['pro_descripcion'],
+        'id_tipo'          => $data['id_tipo'],
+        'pro_um_compra'    => $data['pro_um_compra'],
+        'pro_um_venta'     => $data['pro_um_venta'],
+        'pro_valor_compra' => $data['pro_valor_compra'],
+        'pro_precio_venta' => $data['pro_precio_venta'],
+        'dest'             => $data['dest'],
+    ]);
+}
+
 }
