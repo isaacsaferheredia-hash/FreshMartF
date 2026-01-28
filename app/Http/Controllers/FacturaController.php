@@ -41,7 +41,7 @@ class FacturaController extends Controller
         $clientes = Cliente::where('estado_cli', 'ACT')->orderBy('cli_nombre')->get();
         $productos = Producto::where('estado_prod', 'ACT')->orderBy('pro_descripcion')->get();
 
-        return view('facturas.create', compact('clientes', 'productos'));
+        return view('Facturas.create', compact('clientes', 'productos'));
     }
 
     public function store(Request $request)
