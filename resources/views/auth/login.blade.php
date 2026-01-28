@@ -130,6 +130,28 @@
             color: #16a34a;
             text-decoration: underline;
         }
+
+
+
+        .btn-register {
+            display: block;
+            text-align: center;
+            margin-top: 14px;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #16a34a;
+            border: 2px solid #16a34a;
+            text-decoration: none;
+            transition: all .2s ease;
+        }
+
+        .btn-register:hover {
+            background: #16a34a;
+            color: #fff;
+        }
+
     </style>
 
     <div class="login-wrapper">
@@ -202,6 +224,11 @@
                 <button type="submit" class="btn-login">
                     Iniciar sesión
                 </button>
+
+                <a href="{{ route('register') }}" class="btn-register">
+                    ¿No tienes cuenta? Regístrate
+                </a>
+
             </form>
 
             {{-- 🔑 ACCESO ADMIN (DISCRETO) --}}
