@@ -116,7 +116,7 @@ class ProductoController extends Controller
 
         if ($producto->estado_prod === 'ANU') {
             return redirect()
-                ->route('Productos.index')
+                ->route('productos.index')
                 ->with('warning', 'No se puede modificar un producto inactivo.');
         }
 
@@ -148,7 +148,7 @@ class ProductoController extends Controller
         ]);
 
         return redirect()
-            ->route('Productos.index')
+            ->route('productos.index')
             ->with('success', 'Producto actualizado correctamente');
     }
 
