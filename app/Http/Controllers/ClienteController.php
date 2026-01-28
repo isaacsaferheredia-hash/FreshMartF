@@ -82,7 +82,7 @@ class ClienteController extends Controller
 
         // 3. mmm
         return redirect()
-            ->route('Clientes.index')
+            ->route('clientes.index')
             ->with('success', 'Cliente registrado correctamente');
     }
 
