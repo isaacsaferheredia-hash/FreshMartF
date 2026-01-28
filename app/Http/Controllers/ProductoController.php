@@ -160,7 +160,7 @@ class ProductoController extends Controller
         Producto::findOrFail($id)->desactivar();
 
         return redirect()
-            ->route('Productos.index')
+            ->route('productos.index')
             ->with('success', 'Producto desactivado correctamente');
     }
 
