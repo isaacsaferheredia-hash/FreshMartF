@@ -119,7 +119,7 @@ class CompraController extends Controller
 
         if ($compra->estado_oc === 'ANU') {
             return redirect()
-                ->route('Compras.index')
+                ->route('compras.index')
                 ->with('warning', 'No se puede modificar una orden anulada.');
         }
 
@@ -204,12 +204,12 @@ class CompraController extends Controller
             $compra->detalles()->update(['estado_pxoc' => 'ANU']);
         } catch (\Throwable $e) {
             return redirect()
-                ->route('Compras.index')
+                ->route('compras.index')
                 ->with('error', 'No se pudo anular la orden de compra.');
         }
 
         return redirect()
-            ->route('Compras.index')
+            ->route('compras.index')
             ->with('success', 'Orden de compra anulada correctamente.');
     }
 }
