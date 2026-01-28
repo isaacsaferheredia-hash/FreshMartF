@@ -55,7 +55,7 @@ class UsuarioController extends Controller
             'rol'      => $data['rol'],
         ]);
 
-        return redirect()->route('admin.Usuarios.Index')
+        return redirect()->route('Usuarios.Index')
             ->with('success', 'Usuario creado correctamente');
     }
 
