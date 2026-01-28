@@ -73,7 +73,7 @@ class ProductoController extends Controller
         ]);
 
         return redirect()
-            ->route('Productos.index')
+            ->route('productos.index')
             ->with('success', 'Producto registrado correctamente');
     }
 
