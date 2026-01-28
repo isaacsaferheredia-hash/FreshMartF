@@ -45,7 +45,7 @@ class CompraController extends Controller
             : null;
 
         return view(
-            'compras.index',
+            'Compras.index',
             compact('compras', 'mensajeVacio', 'mensajeSinResultados')
         );
     }
