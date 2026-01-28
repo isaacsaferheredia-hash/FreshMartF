@@ -216,7 +216,7 @@ class FacturaController extends Controller
             );
 
             return redirect()
-                ->route('Facturas.show', $idFactura)
+                ->route('facturas.show', $idFactura)
                 ->with('success', 'Factura aprobada correctamente.');
 
         } catch (\Throwable $e) {
