@@ -203,7 +203,7 @@ class FacturaController extends Controller
             ])
             ->get();
 
-        return view('facturas.show', compact('factura', 'detalles'));
+        return view('Facturas.show', compact('factura', 'detalles'));
     }
 
     public function aprobar(string $idFactura)
@@ -216,7 +216,7 @@ class FacturaController extends Controller
             );
 
             return redirect()
-                ->route('facturas.show', $idFactura)
+                ->route('Facturas.show', $idFactura)
                 ->with('success', 'Factura aprobada correctamente.');
 
         } catch (\Throwable $e) {
