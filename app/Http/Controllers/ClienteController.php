@@ -103,7 +103,7 @@ class ClienteController extends Controller
     {
         if ($cliente->estado_cli === 'INA') {
             return redirect()
-                ->route('Clientes.index')
+                ->route('clientes.index')
                 ->with('warning', 'No se puede modificar un cliente inactivo.');
         }
 
@@ -128,7 +128,7 @@ class ClienteController extends Controller
         }
 
         return redirect()
-            ->route('Clientes.index')
+            ->route('clientes.index')
             ->with('success', 'Cliente actualizado correctamente');
     }
 
@@ -136,14 +136,14 @@ class ClienteController extends Controller
     {
         if ($cliente->estado_cli === 'INA') {
             return redirect()
-                ->route('Clientes.index')
+                ->route('clientes.index')
                 ->with('warning', 'No se puede eliminar un cliente inactivo.');
         }
 
         Cliente::desactivarCliente($cliente);
 
         return redirect()
-            ->route('Clientes.index')
+            ->route('clientes.index')
             ->with('success', 'Cliente desactivado correctamente.');
     }
 
