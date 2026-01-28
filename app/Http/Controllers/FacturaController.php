@@ -88,7 +88,7 @@ class FacturaController extends Controller
         });
 
         return redirect()
-            ->route('Facturas.index')
+            ->route('facturas.index')
             ->with('success', 'Factura registrada correctamente.');
     }
 
@@ -113,7 +113,7 @@ class FacturaController extends Controller
     public function update(Request $request, Factura $factura)
     {
         if ($factura->estado_fac !== 'ABI') {
-            return redirect()->route('Facturas.index')
+            return redirect()->route('facturas.index')
                 ->with('warning', 'No se puede modificar una factura cerrada.');
         }
 
@@ -161,7 +161,7 @@ class FacturaController extends Controller
         });
 
         return redirect()
-            ->route('Facturas.index')
+            ->route('facturas.index')
             ->with('success', 'Factura actualizada correctamente.');
     }
 
@@ -178,7 +178,7 @@ class FacturaController extends Controller
             ->update(['estado_pxf' => 'ANU']);
 
         return redirect()
-            ->route('Facturas.index')
+            ->route('facturas.index')
             ->with('success', 'Factura anulada correctamente.');
     }
 
