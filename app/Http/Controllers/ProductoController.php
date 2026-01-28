@@ -137,7 +137,7 @@ class ProductoController extends Controller
             'dest'             => 'required|in:S,N',
         ]);
 
-        $producto->crearProducto([
+        $producto->actualizarProducto([
             'pro_descripcion'  => $request->pro_descripcion,
             'id_tipo'          => $request->id_tipo,
             'pro_um_compra'    => $request->pro_um_compra,
