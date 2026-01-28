@@ -105,6 +105,27 @@
 
         @endif
 
+
+        {{-- =========================
+   ÁREA: ADMINISTRACIÓN
+   Usuarios
+========================= --}}
+@if(auth()->user()->rol === 'ADMIN')
+
+    <div class="col-md-3">
+        <a href="{{ url('/admin/usuarios') }}" class="text-decoration-none">
+            <div class="card shadow-sm border-0 h-100 text-center">
+                <div class="card-body py-4">
+                    <i class="fa-solid fa-user-gear fa-3x text-dark mb-3"></i>
+                    <h5 class="fw-semibold">Usuarios</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+
+@endif
+
+
     </div>
 
 </x-adminlayout>
