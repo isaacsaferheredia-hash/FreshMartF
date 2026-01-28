@@ -41,7 +41,7 @@ class FacturaController extends Controller
         $clientes = Cliente::where('estado_cli', 'ACT')->orderBy('cli_nombre')->get();
         $productos = Producto::where('estado_prod', 'ACT')->orderBy('pro_descripcion')->get();
 
-        return view('Facturas.create', compact('clientes', 'productos'));
+        return view('facturas.create', compact('clientes', 'productos'));
     }
 
     public function store(Request $request)
@@ -203,7 +203,7 @@ class FacturaController extends Controller
             ])
             ->get();
 
-        return view('Facturas.show', compact('factura', 'detalles'));
+        return view('facturas.show', compact('factura', 'detalles'));
     }
 
     public function aprobar(string $idFactura)
@@ -216,7 +216,7 @@ class FacturaController extends Controller
             );
 
             return redirect()
-                ->route('Facturas.show', $idFactura)
+                ->route('facturas.show', $idFactura)
                 ->with('success', 'Factura aprobada correctamente.');
 
         } catch (\Throwable $e) {
