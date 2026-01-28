@@ -68,7 +68,7 @@ class UsuarioController extends Controller
         $user->delete(); // 👈 soft delete
 
         return redirect()
-            ->route('admin.Usuarios.Index')
+            ->route('usuarios.index')
             ->with('success', 'Usuario desactivado correctamente');
     }
 }
