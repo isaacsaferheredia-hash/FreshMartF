@@ -55,7 +55,7 @@ class UsuarioController extends Controller
             'rol'      => $data['rol'],
         ]);
 
-        return redirect()->route('Usuarios.Index')
+        return redirect()->route('admin.Usuarios.Index')
             ->with('success', 'Usuario creado correctamente');
     }
 
@@ -68,7 +68,7 @@ class UsuarioController extends Controller
         $user->delete(); // 👈 soft delete
 
         return redirect()
-            ->route('Usuarios.Index')
+            ->route('admin.Usuarios.Index')
             ->with('success', 'Usuario desactivado correctamente');
     }
 }
